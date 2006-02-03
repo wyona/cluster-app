@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<project name="cluster" default="usage">
+
+  <target name="usage" description="How to see all the targets">
+    <echo>USAGE: ant -projecthelp</echo>
+  </target>
+
+  <target name="init" description="initialization">
+    <property file="local.build.properties"/>
+    <property file="build.properties"/>
+
+    <path id="classpath">
+      <fileset dir="lib">
+        <include name="*.jar"/>
+      </fileset>
+    </path>
+  </target>
+
+  <target name="install" depends="init, compile" description="Install webapp">
+    <echo>Copy webapp (${tomcat.webapps.dir}):</echo>
+    <copy todir="${tomcat.webapps.dir}/cluster">
+      <fileset dir="build/webapp"/>
+    </copy>
+  </target>
+
+  <target name="compile" depends="init" description="Compile">
+    <echo>Compile Java classes</echo>
+    <javac srcdir="src/java" destdir="build/webapp/WEB-INF/classes"
+           classpathref="classpath"
+           debug="true"
+    />
+  </target>
+
+</project>
