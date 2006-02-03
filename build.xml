@@ -25,6 +25,11 @@
   </target>
 
   <target name="compile" depends="init" description="Compile">
+    <mkdir dir="build"/>
+    <copy todir="build">
+      <fileset dir="src/webapp"/>
+    </copy>
+    <mkdir dir="build/webapp/WEB-INF/classes"/>
     <echo>Compile Java classes</echo>
     <javac srcdir="src/java" destdir="build/webapp/WEB-INF/classes"
            classpathref="classpath"
