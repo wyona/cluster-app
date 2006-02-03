@@ -26,7 +26,7 @@
 
   <target name="compile" depends="init" description="Compile">
     <mkdir dir="build"/>
-    <copy todir="build">
+    <copy todir="build/webapp">
       <fileset dir="src/webapp"/>
     </copy>
     <mkdir dir="build/webapp/WEB-INF/classes"/>
