@@ -18,8 +18,27 @@
   </target>
 
   <target name="install" depends="init, compile" description="Install webapp">
-    <echo>Copy webapp (${tomcat.webapps.dir}):</echo>
-    <copy todir="${tomcat.webapps.dir}/cluster">
+    <condition property="deploy-to-cluster-node1">
+      <isset property="tomcat1.webapps.dir"/>
+    </condition>
+    <antcall target="deploy-to-cluster-node1"/>
+
+    <condition property="deploy-to-cluster-node2">
+      <isset property="tomcat2.webapps.dir"/>
+    </condition>
+    <antcall target="deploy-to-cluster-node2"/>
+  </target>
+
+  <target name="deploy-to-cluster-node1" if="deploy-to-cluster-node1" description="Deploy webapp to cluster node 1">
+    <echo>Copy webapp (${tomcat1.webapps.dir}):</echo>
+    <copy todir="${tomcat1.webapps.dir}/cluster">
+      <fileset dir="build/webapp"/>
+    </copy>
+  </target>
+
+  <target name="deploy-to-cluster-node2" if="deploy-to-cluster-node2" description="Deploy webapp to cluster node 2">
+    <echo>Copy webapp (${tomcat2.webapps.dir}):</echo>
+    <copy todir="${tomcat2.webapps.dir}/cluster">
       <fileset dir="build/webapp"/>
     </copy>
   </target>
