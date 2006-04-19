@@ -28,3 +28,17 @@ http://docs.sun.com/source/819-0215/loadb.html
 http://www.josso.org/
 http://rabbit-proxy.sourceforge.net/index.shtml
 http://www.me.lv/jp/
+
+
+Developer Notes:
+----------------
+
+To make objects seriazable/replicable/clusterable one needs to implement the methods
+
+writeObject
+
+and 
+
+readObject
+
+See for instance: http://svn.apache.org/repos/asf/lenya/branches/BRANCH_1_2_X/src/java/org/apache/lenya/ac/Identity.java
