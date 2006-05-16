@@ -24,6 +24,7 @@ http://www.onjava.com/pub/a/onjava/2004/11/24/replication1.html
 http://tomcat.apache.org/tomcat-5.0-doc/balancer-howto.html
 http://tomcat.apache.org/tomcat-5.0-doc/cluster-howto.html
 http://docs.sun.com/source/819-0215/loadb.html
+http://www.howtoforge.com/high_availability_loadbalanced_apache_cluster
 
 http://www.josso.org/
 http://rabbit-proxy.sourceforge.net/index.shtml
